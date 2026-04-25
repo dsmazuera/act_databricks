@@ -50,7 +50,8 @@ schema = T.StructType([T.StructField(f, T.StringType()) for f in fields])
 # 3️⃣ Ground Truth Record
 # ------------------------------------------------------------------------------
 truth_record = {
-    "source_file": "/mnt/data/1692883297451_CY FL-SC.pdf",
+    "source_file": "dbfs:/Volumes/logistics/bronze/raw/pdf/source=CY/1692883297451_CY FL-SC.pdf",
+
     "broker_name": "Coyote Logistics, LLC",
     "broker_phone": "877-626-9683",
     "broker_fax": "+1 (773) 365 4256",
@@ -58,11 +59,11 @@ truth_record = {
     "broker_city": "Alpharetta",
     "broker_state": "GA",
     "broker_zipcode": "30005",
-    "broker_email": "CarrierInvoices@coyote.com; Dan.Matkovic@coyote.com",
-    
+    "broker_email": "CarrierInvoices@coyote.com",
+
     "loadConfirmationNumber": "29720595",
     "totalCarrierPay": "800.00",
-    
+
     "carrier_name": "GTT Freight Corp",
     "carrier_mc": "",
     "carrier_address": "",
@@ -72,36 +73,37 @@ truth_record = {
     "carrier_phone": "",
     "carrier_fax": "",
     "carrier_contact": "Camilo Ramirez",
-    
+
     "pickup_customer_1": "Ocala 3PL 9001",
     "pickup_address_1": "1299 SW 49TH AVE",
     "pickup_city_1": "Ocala",
     "pickup_state_1": "FL",
     "pickup_zipcode_1": "34474",
     "pickup_start_datetime_1": "2023-08-25T08:00:00",
-    "pickup_end_datetime_1": "",
-    
+    "pickup_end_datetime_1": "2023-08-25T08:00:00",
+
     "delivery_customer_1": "American Freight Store 216",
     "delivery_customer_2": "American Freight Store 101",
-    
-    "delivery_address_1": "1680 Richland Ave W",
-    "delivery_address_2": "1424 Atlas Rd",
-    
+
+    "delivery_address_1": "1680 RICHLAND AVE W",
+    "delivery_address_2": "1424 ATLAS RD",
+
     "delivery_city_1": "Aiken",
     "delivery_city_2": "Columbia",
-    
+
     "delivery_state_1": "SC",
     "delivery_state_2": "SC",
-    
+
     "delivery_zipcode_1": "29801",
     "delivery_zipcode_2": "29209",
-    
+
     "delivery_start_datetime_1": "2023-08-25T16:00:00",
     "delivery_start_datetime_2": "2023-08-26T10:00:00",
-    
-    "delivery_end_datetime_1": "",
-    "delivery_end_datetime_2": "",
+
+    "delivery_end_datetime_1": "2023-08-25T16:00:00",
+    "delivery_end_datetime_2": "2023-08-26T10:00:00",
 }
+
 truth_df = spark.createDataFrame([truth_record], schema=schema)
 # ------------------------------------------------------------------------------
 # 4️⃣ Load Target Table from Parameter
